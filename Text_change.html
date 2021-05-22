@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+    </style>
+</head>
+<body>
+    <div>
+        <h1 class="hello">hello world-1</h1>
+        <h1 class="hello">hjbvgjkfgvfh2</h1>
+        <h1 class="hello">hello world-3</h1>
+        <h1 class="hello">hello world-4</h1>
+        <h1 class="hello">hello world-5</h1>
+    </div>
+
+    <div>
+        <button>Click To Change left</button>
+        <button>Click To Change right</button>
+    </div>
+
+    <script>
+
+        var hide = document.getElementsByClassName('hello')
+
+        for (let i = 1; i <= 4 ; i++) {
+            
+            hide[i].style.display = 'none'
+        }
+
+        
+
+
+        var btn = document.querySelectorAll('button')
+        var j = 0;
+        btn[0].addEventListener('click', function() {
+            console.log(j);
+            if (j <= 0) {
+               j = 0;
+            }
+            
+            if (j >= 4) {
+                j = 3
+            }
+            
+        for (let i = 0; i <= 4 ; i++) {
+            if (i == j) {
+                hide[i].style.display = 'block'
+            }else{
+                hide[i].style.display = 'none'
+            }
+           
+        }
+            
+            j--
+        })
+
+
+        btn[1].addEventListener('click', function() {
+            console.log(j);
+            if (j >= 4) {
+                j = 4
+            }
+
+            if (j <= 0) {
+                j = 1
+            }
+            
+        for (let i = 0; i <= 4 ; i++) {
+            if (i == j) {
+                hide[i].style.display = 'block'
+            }else{
+                hide[i].style.display = 'none'
+            }
+           
+        }
+            
+            j++
+        })
+
+
+        for (let i = 5; i <= 100; i = i+5) {
+            console.log(i)
+        }
+
+
+    </script>
+</body>
+</html>
