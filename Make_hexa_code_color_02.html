@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hexadecimal color code create</title>
+    <!-- created and designed by Emran Hasan-->
+    <style>
+        *{
+            outline: 0;
+            box-sizing: border-box;
+        }
+        button{
+            border: none;
+        }
+        body{
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .container{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .cont{
+            background: cadetblue;
+            width: 150px;
+            height: 150px;
+            border: 2px solid cornflowerblue;
+            border-radius: 10px;
+        }
+
+        .btn1{
+            margin-left: 23px;
+            font-size: 15px;
+            background: chocolate;
+            border-radius: 5px;
+            color: white;
+            height: 40px;
+            width: 100px;
+            margin-top: 18px;
+        }
+
+        .btn2{
+            margin-left: 23px;
+            font-size: 15px;
+            background: chocolate;
+            border-radius: 5px;
+            color: white;
+            height: 40px;
+            width: 100px;
+        }
+
+        .num{
+            text-align: center;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="cont">
+        <button class="btn1">Increase</button>
+        <div class="num">0</div>
+        <button class="btn2">Decrease</button>
+        </div>
+    </div>
+    
+</body>
+
+<script>
+
+    var btn1 = document.querySelector('.btn1')
+    var btn2 = document.querySelector('.btn2')
+    var num = document.querySelector('.num')
+
+    // var arr = [
+    //     'red', 'blue', 'cyan', 'magenta', 'yellow', 'green', 'black', 'lightblue', 'dodgerblue'
+    // ]
+
+    var hexArr = ['0', '1', '2', '3', '5', '6', '7', '8', 'a', 'b', 'c', 'd', 'e', 'f']
+
+    var j = 0;
+    var color = '#'
+    // var l = 0;
+    btn1.addEventListener('click', function(p) {
+
+        j++
+
+        if (j >= 200) {
+            j = 200
+        }
+
+        if (j <= 1) {
+            j = 1
+        }
+        
+        for (let i = 1; i <= 200; i++) {
+             if (i == j) {
+                 num.innerHTML = i
+                 num.style.color = 'white'
+             }
+             
+        }
+
+        for (let k = 5; k <= 200; k = k+5) {
+                
+                 if (j == k) {
+
+                    color = '#'
+                    for (let m = 0; m <=5; m++) {
+                        color += hexArr[Math.floor(Math.random()*hexArr.length)]
+                    }
+                    console.log(color);
+                    num.style.color = color
+                    // num.style.color = arr[l]
+                    // l++
+                    // console.log(k);
+                 }   
+        }
+    })
+
+    btn2.addEventListener('click', function(e) {
+
+        j--
+
+        if (j <= 1) {
+            j = 1
+        }
+
+        if (j >= 200) {
+            j = 199
+        }
+
+        for (let i = 1; i <= 200; i++) {
+             if (i == j) {
+                 num.innerHTML = i;
+                 num.style.color = 'white'
+             }
+
+        }
+
+        for (let k = 5; k <= 200; k = k+5) {
+                
+                if (j == k) {
+                //    num.style.color = arr[Math.floor(Math.random()*arr.length)]
+                //    l++
+                //    console.log(k);
+                }   
+       }
+        
+    })
+</script>
+</html>
