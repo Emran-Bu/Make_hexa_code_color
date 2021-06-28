@@ -67,20 +67,21 @@
 
     <div class="container">
         <div class="cont">
-        <button class="btn1">Increase</button>
+        <button class="btn1">Generate Color</button>
         <div class="num"></div>
-        <button class="btn2">Decrease</button>
+        <button class="btn2">Copy Code</button>
         </div>
     </div>
-    
-</body>
+    <input type="color" name="" id="colorBox">
+</html>
 
 <script>
 
     var btn1 = document.querySelector('.btn1')
     var btn2 = document.querySelector('.btn2')
     var num = document.querySelector('.num')
-
+    var colorBox = document.querySelector('#colorBox')
+    
     var hexArr = ['0', '1', '2', '3', '5', '6', '7', '8', 'a', 'b', 'c', 'd', 'e', 'f']
 
     var j = 0;
@@ -100,22 +101,20 @@
 
 
     btn2.addEventListener('click', function() {
-        j--
 
-        if (j<=0) {
-            j = 0
-        }
+        this.style.border = '2px solid yellow'
 
-        // num.innerHTML = j
+        var copyText = num.innerText
+        
+        var elem = document.createElement('input')
+        elem.value = copyText
+        document.body.appendChild(elem)
+        elem.select()
+        document.execCommand('copy')
+        document.body.removeChild(elem)
 
-        var color = '#'
+        console.log(colorBox.value);
 
-        for (let i = 0; i <= 5; i++) {
-            color = color + hexArr[Math.floor(Math.random()*hexArr.length)]
-            num.innerHTML = color
-            num.style.backgroundColor = color
-        }
-        // console.log(color)
     })
 
 
